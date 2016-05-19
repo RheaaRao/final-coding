@@ -27,3 +27,6 @@ $(document).ready(function(){
 	});
 
 });
+
+var information = document.getElementbyId('menu');
+information.innerHTML = div.innerHTML + 'Extra stuff';
