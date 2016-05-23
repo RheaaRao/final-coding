@@ -27,6 +27,20 @@ $(document).ready(function(){
 	});
 
 });
+var result= document.createElement("div")
+var title= getElementById(".opinion").appendChild(result)
 
-var information = document.getElementbyId('menu');
-information.innerHTML = div.innerHTML + 'Extra stuff';
+
+// function showOnScreen(){
+// _.each(section, function(data){
+	// $(".list").append("<option value="+section+">"+section+"</option");
+// });
+// }
+
+// function onPage(data){
+// 	var html=[];
+// 	_.each(data, function(data){
+// 		html.push("<a href"+ section.url+">"+section.title+ "</a><p>"+ story.abstract);
+		
+// 	)};
+// }
