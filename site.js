@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
 	$('#menu li').click(function(){
-		console.log(this);
 		var sectionid = $(this).attr('id');
-		console.log(sectionid);
+
+		
 
 		var url = "https://api.nytimes.com/svc/topstories/v2/"+ sectionid +".json";
 		url += '?' + $.param({
@@ -14,11 +14,32 @@ $(document).ready(function(){
 		  url: url,
 		  method: 'GET',
 		}).done(function(data) {
-		  // console.log(data.results);
+		  console.log(data);
 
 		  for (var i=0; i<data.results.length; i++){
-          console.log(data.results[i].section);
+		  	console.log("loop");
+		  	console.log(data.results);
+            console.log(data.results[i].section);
+            var section = data.results[i];
+
+
+            //var result = document.createElement("div");
+            var result = '<div><a href="'+ section.url+'">'+section.title+ '</a><p>'+ section.abstract+'</div>';
+            var sectionName = $('#'+sectionid).text();
+            $('#'+sectionid).append(result);
+
 		  }
+
+		  
+
+	   //   _.each(data, function(data){
+		  //    html.push("<a href"+ section.url+">"+section.title+ "</a><p>"+ story.abstract);
+		  // )};
+
+	     _.each(data.results,function(data){
+             
+	     });
+
 
 		}).fail(function(err) {
 		  throw err;
@@ -27,8 +48,6 @@ $(document).ready(function(){
 	});
 
 });
-var result= document.createElement("div")
-var title= getElementById(".opinion").appendChild(result)
 
 
 // function showOnScreen(){
@@ -38,9 +57,10 @@ var title= getElementById(".opinion").appendChild(result)
 // }
 
 // function onPage(data){
-// 	var html=[];
-// 	_.each(data, function(data){
-// 		html.push("<a href"+ section.url+">"+section.title+ "</a><p>"+ story.abstract);
+// 	console.log(data);
+// var html=[];
+// 	// _.each(data, function(data){
+// 	// 	// html.push("<a href"+ section.url+">"+section.title+ "</a><p>"+ story.abstract);
 		
-// 	)};
-// }
+// 	// )};
+//  }
